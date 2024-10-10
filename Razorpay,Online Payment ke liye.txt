@@ -1,0 +1,57 @@
+first of all
+-------------
+1] https://www.npmjs.com/package/react-razorpay  // es website pr jaakar npm i react-razorpay ko install kar lo 
+ 
+jese file hai table cart ke naame se us mai 
+
+2] import { useCallback } from "react";        // hook useCallback ka matlab hota hai jese agar hame use call ka use kiya hai to useCallback ke ander jo bhi hai ek baar call karne pr vo data memoraij ho jaata hai.
+
+3] import useRazorpay from "react-razorpay";
+
+4] const [Razorpay] = useRazorpay();
+
+5]   ////////////////////Payment API/////////////////////
+  
+  const handlePayment = useCallback(async(na) => {
+     
+      
+    const options = {
+      key: "rzp_test_GQ6XaPC6gMPNwH",     //es key ko lene ke liye hame ek website pr jaana hota hai jismai hame registration karna hota hai aur us registration mai apna account aur sabhi documentation lagaye jaate hai fir hame key milte hai us key ke duhara payment direct apne account mai pahuch jaata hai.
+      amount: na*100,
+      currency: "INR",
+      name: admin.restaurantname,
+      description: "Online Payments",
+      image: `${serverURL}/images/${admin.filelogo}`,
+     
+      handler: (res) => {
+        console.log("Payment Details",res);
+      },
+      prefill: {
+        name: customername,
+        email: "youremail@example.com",
+        contact: mobileno,
+      },
+      notes: {
+        address: "Razorpay Corporate Office",
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    const rzpay = new Razorpay(options);
+    rzpay.open();
+  }, [Razorpay]);
+
+
+
+
+
+  ////////////////////////////////////////////////////////
+
+
+
+
+5]  <Grid item xs={6}>
+    <Button onClick={()=>handlePayment((totalAmount-totalOffer)+((totalAmount-totalOffer)*admin.gsttype/100))} variant="contained" style={{display:'flex',marginLeft:'auto'}} color="primary" >Payment Online</Button>
+   </Grid>

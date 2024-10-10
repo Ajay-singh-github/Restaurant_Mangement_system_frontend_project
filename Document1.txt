@@ -1,0 +1,31 @@
+States
+--------
+stateid pk
+statename 
+
+
+City
+-----
+stateid fk
+cityid pk
+cityname
+
+
+Restaurant
+-----------
+restaurantid pk
+restaurantname
+ownername
+mobileno
+emailid
+phonenumber
+phonenumber
+address
+state
+city
+URL
+Fassai_no
+shopregistration
+gst number
+gst type
+logo

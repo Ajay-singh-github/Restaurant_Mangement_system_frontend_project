@@ -1,0 +1,1 @@
+{btnStatus?editDeleteButton():<></> }  :-ye condition di gye hai agar btnStauts true hota hai to es function Component ko call karega otherwise nhi.
